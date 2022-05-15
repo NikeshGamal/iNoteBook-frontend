@@ -16,7 +16,7 @@ export const AddNotes = () => {
 
     const onChange = (e)=>{
         //With every change on the values of the element we see the changes over the value
-        setNote({...note,[e.target.name]:[e.target.value]});
+        setNote({...note,[e.target.name]:[e.target.value][0]});
     }
 
   return (
@@ -24,17 +24,18 @@ export const AddNotes = () => {
         <h1>Add a Note</h1>
          <form>
              <div className="form-group">
-                 <label htmlFor="title">Email address</label>
-                 <input type="text" className="form-control my-2" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange}/>
+                 <label htmlFor="title">Your Title</label>
+                 <input type="text" className="form-control my-2" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter title" onChange={onChange}/>
              </div>
              <div className="form-group">
-                  <label htmlFor="description">Password</label>
-                  <input type="text" className="form-control my-2" id="description" name="description" placeholder="Password" onChange={onChange}/>
+                  <label htmlFor="description">Description</label>
+                  <input type="text" className="form-control my-2" id="description" name="description" placeholder="Description" onChange={onChange}/>
              </div>
-             <div className="form-check my-2">
-                 <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                 <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+             <div className="form-group">
+                  <label htmlFor="description">Tags</label>
+                  <input type="text" className="form-control my-2" id="tags" name="tags" placeholder="Tags" onChange={onChange}/>
              </div>
+
             <button type="submit" className="btn btn-primary  my-2" onClick={onSubmit}>Add a note</button>
          </form>
     </div>
