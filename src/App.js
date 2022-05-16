@@ -4,12 +4,15 @@ import Home from "./Components/Home";
 import About from "./Components/About";
 import NoteState from './context/notes/NotesState';
 import Alert from "./Components/Alert";
+import Signup from './Components/Signup';
+import Login from './Components/Login';
 
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from "react-router-dom";
+
 
 function App() {
   return (
@@ -24,7 +27,9 @@ function App() {
                {/* Also we pass the Components inside element and use exact*/}
                   <Routes>
                        <Route exact path="/"  element={<Home/>}/>   
-                       <Route exact path="/about"  element={<About/>}/>    
+                       <Route exact path="/about"  element={<About/>}/>  
+                       <Route exact path="/login"  element={<Login/>}/>  
+                       <Route exact path="/signup"  element={<Signup/>}/>    
                   </Routes>
              </div>
       </Router>

@@ -2,12 +2,19 @@ import {useContext,useEffect,useRef,useState} from 'react'
 import noteContext from '../context/notes/noteContext';
 import NoteItem from './NoteItem';
 import AddNotes from './AddNotes';
+import { useNavigate} from 'react-router-dom';
 
 export const Note = () => {
+  let navigate = useNavigate();
+
   const context= useContext(noteContext);
   const {notes,getNotes,editNote} = context;
       useEffect(() => {
-       getNotes();
+        if(localStorage.getItem('token')){
+          getNotes();
+        }else{
+          navigate("/login");
+        }
       }, [])
 
       const [note, setNote] = useState({etitle:"",edescription:"",etags:""});
@@ -25,6 +32,7 @@ export const Note = () => {
 
         //editNote function takes 4 arguments but since edit takes recent entries or changes so we pass etitle,edescription and etags
         editNote(note.id,note.etitle,note.edescription,note.etags);
+        
     }
 
     const onChange = (e)=>{
