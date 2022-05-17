@@ -2,7 +2,7 @@ import React from 'react';
 import {useContext, useState} from 'react';
 import noteContext from '../context/notes/noteContext';
 
-export const AddNotes = () => {
+export const AddNotes = (props) => {
     const context= useContext(noteContext);
     const {addNote} = context;
 
@@ -13,6 +13,7 @@ export const AddNotes = () => {
         //addNote method receives 3 parameters that will add the respective note 
          addNote(note.title,note.description,note.tags);
          setNote({title:"",description:"",tags:""});
+         props.showAlert("Added a note","success");  
     }
 
     const onChange = (e)=>{
@@ -21,7 +22,8 @@ export const AddNotes = () => {
     }
 
   return (
-    <div>
+   <div className="container">
+        <div className='container my-4'>
         <h1>Add a Note</h1>
          <form>
              <div className="form-group">
@@ -39,7 +41,8 @@ export const AddNotes = () => {
 
             <button disabled={note.title.length<5 || note.description.length<5 ?true:false} type="submit" className="btn btn-primary  my-2" onClick={onSubmit}>Add a note</button>
          </form>
-    </div>
+       </div>
+   </div>
   )
 }
 

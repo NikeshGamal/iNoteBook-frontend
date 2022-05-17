@@ -42,28 +42,31 @@ const Signup = (props) => {
     setCredentials({...credentials,[e.target.name]:e.target.value});
 }
   return (
-    <div className='container'>
-       <form onSubmit={handleSubmit}>
+    <div className='container my-4 my-4 my-4 my-4'>
+      <div className="container" style={{width:"640px"}}>
+      <form onSubmit={handleSubmit}>
+       <h1 className='text-center text-primary'>Signup</h1>
        <div className="mb-3">
-             <label htmlFor="name" className="form-label">Enter name</label>
+             <label htmlFor="name" className="form-label" style={{fontSize:"22px"}}>Enter name</label>
              <input type="text" className="form-control" id="name" aria-describedby="emailHelp" name='name' value={credentials.name} onChange={onChange}/>
              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
            </div>
            <div className="mb-3">
-             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+             <label htmlFor="exampleInputEmail1" className="form-label" style={{fontSize:"22px"}}>Email address</label>
              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" name='email' value={credentials.email} onChange={onChange}/>
              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
            </div>
            <div className="mb-3">
-             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+             <label htmlFor="exampleInputPassword1" className="form-label" style={{fontSize:"22px"}}>Password</label>
              <input type="password" className="form-control" id="password" name='password' value={credentials.password} onChange={onChange} minLength={5} required/>
            </div>
            <div className="mb-3">
-             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+             <label htmlFor="exampleInputPassword1" className="form-label" style={{fontSize:"22px"}}>Confirm Password</label>
              <input type="password" className="form-control" id="cpassword" name='cpassword' value={credentials.cpassword} onChange={onChange} minLength={5} required/>
            </div>
-           <button type="submit" className="btn btn-primary">Submit</button>
+           <button type="submit" className="btn btn-primary" style={{fontSize:"17px"}}>Submit</button>
        </form>
+      </div>
     </div>
   )
 }

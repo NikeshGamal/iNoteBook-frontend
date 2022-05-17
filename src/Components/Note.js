@@ -4,7 +4,7 @@ import NoteItem from './NoteItem';
 import AddNotes from './AddNotes';
 import { useNavigate} from 'react-router-dom';
 
-export const Note = () => {
+export const Note = (props) => {
   let navigate = useNavigate();
 
   const context= useContext(noteContext);
@@ -19,7 +19,8 @@ export const Note = () => {
 
       const [note, setNote] = useState({etitle:"",edescription:"",etags:""});
 
-      const ref = useRef(null);        
+      const ref = useRef(null);   
+
       const updateNote = (currentNote)=>{
           ref.current.click();
           setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etags:currentNote.tags});
@@ -29,11 +30,10 @@ export const Note = () => {
         console.log("Loading updating note:",note);
         //e.preventDefault() in order to prevent from reloading the pages
         e.preventDefault();
-
         //editNote function takes 4 arguments but since edit takes recent entries or changes so we pass etitle,edescription and etags
         editNote(note.id,note.etitle,note.edescription,note.etags);
-        
-    }
+        props.showAlert("Updated the note","success");   
+    } 
 
     const onChange = (e)=>{
         //With every change on the values of the element we see the changes over the value
@@ -41,7 +41,7 @@ export const Note = () => {
     }
   return (
        <>
-       <AddNotes/>
+       <AddNotes showAlert={props.showAlert}/>
 
        <button  ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
          Launch demo modal

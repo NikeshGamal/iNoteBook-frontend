@@ -70,6 +70,7 @@ const NoteState = (props)=>{
           //--->>>> filtered or left out
             const newNotes = notes.filter((notes)=>{return notes._id !== id});
             setNotes(newNotes);
+            props.showAlert("Deleted note","success"); 
        }
       
         //3.Edit a note

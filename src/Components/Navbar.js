@@ -2,12 +2,13 @@ import React from 'react'
 import { Link , useLocation} from 'react-router-dom'
 import { useNavigate} from 'react-router-dom'
 
-export const Navbar = () => {
+export const Navbar = (props) => {
    let navigate = useNavigate();
     let location = useLocation();
 
     const handleLogout = ()=>{
        localStorage.removeItem('token');
+       props.showAlert("Successfully Logout","success");
        navigate('/login');
     }
   return (  

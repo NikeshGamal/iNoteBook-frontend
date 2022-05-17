@@ -38,19 +38,22 @@ const Login = (props) => {
     setCredentials({...credentials,[e.target.name]:e.target.value});
 }
   return (
-    <div className='container'>
-       <form onSubmit={handleSubmit}>
-           <div className="mb-3">
-             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' value={credentials.email} onChange={onChange}/>
-             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-           </div>
-           <div className="mb-3">
-             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-             <input type="password" className="form-control" id="exampleInputPassword1" name='password' value={credentials.password} onChange={onChange}/>
-           </div>
-           <button type="submit" className="btn btn-primary">Submit</button>
-       </form>
+    <div className='container my-4 my-4 my-4 my-4' >
+      <div className="container " style={{width:"640px"}}>
+          <h1 className='text-center text-primary'>Login</h1>
+           <form onSubmit={handleSubmit}>
+               <div className="mb-3">
+                 <label htmlFor="exampleInputEmail1" style={{fontSize:"22px"}} className="form-label">Email address</label>
+                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' value={credentials.email} onChange={onChange}/>
+                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+               </div>
+               <div className="mb-3">
+                 <label htmlFor="exampleInputPassword1" style={{fontSize:"22px"}} className="form-label">Password</label>
+                 <input type="password" className="form-control" id="exampleInputPassword1" name='password' value={credentials.password} onChange={onChange}/>
+               </div>
+               <button type="submit" className="btn btn-primary" style={{fontSize:"17px"}}>Submit</button>
+           </form>
+      </div>
     </div>
   )
 }
